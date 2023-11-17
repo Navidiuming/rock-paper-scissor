@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.gameSide{
+    width: 50%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.healthBar{
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.096);
+    height: 20vh;
+}
+
+
+.gameField{
+    height: 55vh;
+    /* border: solid; */
+    background-color: rgba(0, 0, 0, 0.171);
+    width: 90%;
+}
+
+.actionFeild{
+    width: 100%;
+    height: 10vmin;
+    box-sizing: border-box;
+}
+.healthBar{
+
+    border-radius: 10%;
+}
+.healthBar ul{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.healthBar ul li{
+    width: 20%;
+}
+
+.healthBar ul li img{
+    width: 100%;
+    border-radius: 35%;
+}
+
+.vsLogo{
+    position: absolute;
+    height: 10vmax;
+    width: calc(height);
+    border-radius: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gameResult{
+    position: absolute;
+    font-family: fantasy;
+    font-size: 5vw;
+    background-color: purple;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1vw;
+    border-radius: 50%;
+}
+.gameField{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.gameField img{
+    transition: 1s;
+    position: relative;
+    width: 0vmin;
+    border-radius: 50%;
+    transform: scalex(-1);
+    transition: 1s;
+}
+.actionFeild{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.actionFeild img{
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.playerside .actionFeild img{
+    transform: scaleX(-1);
+}
+
+.playerside .gameField p{
+    font-family: fantasy;
+    font-size: 4vw;
+    text-align: center;
+}
+.playerside{background-color: #28cabf;}
+.rivalSide{background-color: #e40325;}
