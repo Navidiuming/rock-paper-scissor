@@ -1,13 +1,14 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-.container{
+
+.container {
     height: 100vh;
     box-sizing: border-box;
 }
 
-.gameSide{
+.gameSide {
     width: 50%;
     height: 100%;
     float: left;
@@ -19,30 +20,32 @@
 
 }
 
-.healthBar{
+.healthBar {
     width: 70%;
     background-color: rgba(0, 0, 0, 0.096);
     height: 20vh;
 }
 
 
-.gameField{
+.gameField {
     height: 55vh;
     /* border: solid; */
     background-color: rgba(0, 0, 0, 0.171);
     width: 90%;
 }
 
-.actionFeild{
+.actionFeild {
     width: 100%;
     height: 10vmin;
     box-sizing: border-box;
 }
-.healthBar{
+
+.healthBar {
 
     border-radius: 10%;
 }
-.healthBar ul{
+
+.healthBar ul {
     height: 100%;
     list-style: none;
     display: flex;
@@ -51,16 +54,16 @@
     align-items: center;
 }
 
-.healthBar ul li{
+.healthBar ul li {
     width: 20%;
 }
 
-.healthBar ul li img{
+.healthBar ul li img {
     width: 100%;
     border-radius: 35%;
 }
 
-.vsLogo{
+.vsLogo {
     position: absolute;
     height: 10vmax;
     width: calc(height);
@@ -71,7 +74,8 @@
     transform: translate(-50%, -50%);
 }
 
-.gameResult{
+.gameResult {
+    transition: 1s;
     position: absolute;
     font-family: fantasy;
     font-size: 5vw;
@@ -82,12 +86,14 @@
     padding: 1vw;
     border-radius: 50%;
 }
-.gameField{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+.gameField {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.gameField img{
+
+.gameField img {
     transition: 1s;
     position: relative;
     width: 0vmin;
@@ -95,25 +101,35 @@
     transform: scalex(-1);
     transition: 1s;
 }
-.actionFeild{
+
+.actionFeild {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.actionFeild img{
+
+.actionFeild img {
     height: 100%;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.playerside .actionFeild img{
+.playerside .actionFeild img {
     transform: scaleX(-1);
 }
 
-.playerside .gameField p{
+.playerside .gameField p {
+    z-index: 1;
     font-family: fantasy;
     font-size: 4vw;
     text-align: center;
 }
-.playerside{background-color: #28cabf;}
-.rivalSide{background-color: #e40325;}
+
+
+.playerside {
+    background-color: #28cabf;
+}
+
+.rivalSide {
+    background-color: #e40325;
+}

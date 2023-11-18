@@ -7,6 +7,7 @@ const p_gameResult = document.querySelector(".gameResult");
 const img_playerHeart = document.querySelectorAll(".playerside .healthBar ul li img");
 const img_rivalHeart = document.querySelectorAll(".rivalSide .healthBar ul li img");
 let isClickedAllowed = true;
+let isGamefinished = false;
 let playerMove;
 let rivalMove;
 let round = 2;
@@ -39,6 +40,7 @@ function rivalAct() {
     img_rival_act[randnumber].style.width = '25vmin';
     rivalMove = img_rival_act[randnumber].getAttribute("src");
     console.log(img_rival_act);
+    p_gameResult.style.opacity = "1";
 }
 
 function playerAct(arr, name) {
@@ -98,6 +100,12 @@ function reduceHeart(hearts) {
     }
 }
 
+function fillHearts(hearts) {
+    for (let i = 0; i < hearts.length; i++) {
+        hearts[i].src = "./images/fullRedHeart.png"
+    }
+}
+
 function remainHearts(hearts) {
     let fullHeartNumber = 0;
     for (let i = 0; i < hearts.length; i++) {
@@ -111,12 +119,15 @@ function remainHearts(hearts) {
 function startNewRound() {
     let playerRemainHeart = remainHearts(img_playerHeart);
     let rivalRemainHeart = remainHearts(img_rivalHeart);
+    p_gameResult.style.opacity = "0";
     console.log(playerRemainHeart);
     console.log(rivalRemainHeart);
-    if(playerRemainHeart == 0){
+    if (playerRemainHeart == 0) {
         console.log("rival win");
-    }else if(rivalRemainHeart == 0){
+        round = "rivalWon";
+    } else if (rivalRemainHeart == 0) {
         console.log("player win");
+        round = "playerWon";
     }
     clearGameField(img_act);
     clearGameField(img_rival_act);
@@ -128,12 +139,43 @@ function startNewRound() {
             case 3:
                 p_playerGuide.innerHTML = "3rd round";
                 break;
-            default :
+            default:
                 p_playerGuide.innerHTML = `${round}th round`;
                 break;
+            case "playerWon":
+                p_playerGuide.innerHTML = `congratulations , you managed to beat your opponent in a breathtaking game.
+                            Good luck!
+                            The next match will start in a few seconds...`;
+                isGamefinished = true;
+                break;
+            case "rivalWon":
+                p_playerGuide.innerHTML = `You are just a big loser
+                If you want to prove that it is not like this
+                The next hand will start in a few seconds...`;
+                isGamefinished = true;
+                break;
+
+
+
         }
         round++;
-        isClickedAllowed = true;
-        
+        if( isGamefinished == false ){
+            isClickedAllowed = true;
+        }else {
+            setTimeout(() => {
+                startnewGame();
+
+            }, 10000);
+        }
+
     }, 2000);
+}
+
+function startnewGame() {
+    p_playerGuide.innerHTML = "1st Round<br> READY FOR FIGHT !!! <br>PAPER ,SCISSOR OR ROCK ";
+    round = 2;
+    fillHearts(img_playerHeart);
+    fillHearts(img_rivalHeart);
+    isClickedAllowed = true;
+    isGamefinished = false;
 }
